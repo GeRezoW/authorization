@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+
+    if ($_SESSION['user']) 
+    {
+        header('Location: profile.php');
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,14 +19,14 @@
 </head>
 <body>
     <div class="wrapper">
-    <form class="authorization">
+    <form class="authorization" action="include/signup.php" method="post" enctype="multipart/form-data">
         <div class="authorization__body">
             <div class="authorization__header">
                 <div class="authorization__title title">Регистрация</div>
             </div>
             <div class="field">
-                <label class="field__text" for="name">ФИО</label><br>
-                <input class="field__input" type="text" name="name"><br>
+                <label class="field__text" for="full_name">ФИО</label><br>
+                <input class="field__input" type="text" name="full_name"><br>
             </div>
             <div class="field">
                 <label class="field__text" for="login">Логин</label><br>
@@ -35,11 +45,24 @@
                 <input class="field__input" type="password" name="password"><br>
             </div>
             <div class="field">
-                <label class="field__text" for="password-confirm">Подтверждение пароля</label><br>
-                <input class="field__input" type="password" name="password-confirm"><br>
+                <label class="field__text" for="password_confirm">Подтверждение пароля</label><br>
+                <input class="field__input" type="password" name="password_confirm"><br>
             </div>
+            <button class="authorization__reg" type="submit">
+                <a >Зарегистрироваться</a>
+            </button> <br>
             <button class="authorization__reg">
-                <a href="index.html">Зарегистрироваться</a></button>
+                <a href="index.php">Назад</a>
+            </button>
+
+            <?php 
+            if ($_SESSION['message']) {
+                echo '<p class="authorization__msg"> ' . $_SESSION['message'] . ' </p> ';
+            }
+                unset($_SESSION['message']);
+            ?>
+
+            
         </div>
     </form>
     </div>

@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+
+    if ($_SESSION['user']) 
+    {
+        header('Location: profile.php');
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +19,7 @@
 </head>
 <body>
     <div class="wrapper">
-    <form class="authorization">
+    <form class="authorization" action="include/signin.php" method="post">
         <div class="authorization__body">
             <div class="authorization__header">
                 <div class="authorization__title title">Авторизация</div>
@@ -24,10 +34,18 @@
                 <input class="field__input" type="password" name="password"><br>
             </div>
             <button class="authorization__in">
-                <a href="access.html">Войти</a></button><br>
-            <button class="authorization__reg">
-                <a href="reg.html">Зарегистрироваться</a></button>
-        </div>
+                <a>Войти</a></button><br>
+            <button class="authorization__reg" type="submit">
+                <a href="reg.php">Зарегистрироваться</a></button><br>
+            <?php 
+            if ($_SESSION['message']) {
+                echo '<p class="authorization__msg"> ' . $_SESSION['message'] . ' </p> ';
+            }
+                unset($_SESSION['message']);
+            ?> 
+            <a href="product.php">Продукты</a>
+        </div> 
+       
     </form>
 </div>
 </body>

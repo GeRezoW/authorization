@@ -11,6 +11,7 @@
     border-style: double;
 }
 .authorization__body {
+    text-align: center;
 }
 .authorization__header {
 }
@@ -28,6 +29,16 @@
 .field__input {
 }
 .authorization__in {
+    margin-top: 10px;
 }
 .authorization__reg {
+    margin-top: 10px;
+}
+
+.authorization__msg {
+    border: 2px solid coral;
+    border-radius: 3px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
 }
