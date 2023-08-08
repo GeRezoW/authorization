@@ -1,0 +1,33 @@
+.wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.authorization {
+    display: flex;
+
+    background-color: beige;
+    border-style: double;
+}
+.authorization__body {
+}
+.authorization__header {
+}
+.authorization__title {
+    text-align: center;
+}
+.title {
+}
+.authorization__subtitle {
+}
+.field {
+}
+.field__text {
+}
+.field__input {
+}
+.authorization__in {
+}
+.authorization__reg {
+}
